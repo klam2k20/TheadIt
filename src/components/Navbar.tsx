@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
         <Link href="/" className="flex items-center gap-2">
           <Icons.logo className="h-8 w-8 sm:h-6 sm:w-6" />
           <p className="hidden text-sm font-medium text-zinc-700 md:block">
-            SpoookIt
+            TheadIt
           </p>
         </Link>
 
