@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
         {/* Searchbar */}
 
         {/* Login/SignUp */}
-        <Link href="/sign-up" className={buttonVariants()}>
-          Sign Up
+        <Link href="/sign-in" className={buttonVariants()}>
+          Sign In
         </Link>
       </div>
     </div>
