@@ -1,5 +1,3 @@
-import * as React from "react";
-import { User } from "next-auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +7,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
-import Image from "next/image";
-import { Icons } from "./Icons";
-import UserAvatar from "./UserAvatar";
+import { User } from "next-auth";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
+import UserAvatar from "./UserAvatar";
+import SignOutButton from "./SignOutButton";
 
 interface IUserMenuProps {
   user: Pick<User, "name" | "email" | "image">;
@@ -41,10 +39,10 @@ const UserMenu: React.FC<IUserMenuProps> = ({ user }) => {
 
         <DropdownMenuGroup>
           <DropdownMenuItem asChild className="cursor-pointer">
-            <Link href="/feed">Feed</Link>
+            <Link href="/">Feed</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="cursor-pointer">
-            <Link href="/create-community">Create Community</Link>
+            <Link href="/r/create">Create Community</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="cursor-pointer">
             <Link href="/settings">Settings</Link>
@@ -53,9 +51,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ user }) => {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem asChild className="cursor-pointer">
-          <Link href="/sign-out">Sign out</Link>
-        </DropdownMenuItem>
+        <SignOutButton />
       </DropdownMenuContent>
     </DropdownMenu>
   );
