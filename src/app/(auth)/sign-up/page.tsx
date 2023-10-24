@@ -1,10 +1,10 @@
+import SignInBox from "@/components/SignInBox";
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
-import SignInBox from "@/components/SignInBox";
+import Link from "next/link";
 
-const SignUp: React.FC = () => {
+const page = () => {
   return (
     <div className="absolute inset-0">
       <div className="mx-auto flex h-full max-w-2xl flex-col items-center justify-center gap-20">
@@ -27,4 +27,4 @@ const SignUp: React.FC = () => {
   );
 };
 
-export default SignUp;
+export default page;
