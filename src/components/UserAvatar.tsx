@@ -1,5 +1,5 @@
-import { User } from "next-auth";
 import { Avatar, AvatarFallback } from "@/components/ui/Avatar";
+import { User } from "next-auth";
 import Image from "next/image";
 import { Icons } from "./Icons";
 

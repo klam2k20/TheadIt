@@ -8,10 +8,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
 import { User } from "next-auth";
-import { signOut } from "next-auth/react";
 import Link from "next/link";
-import UserAvatar from "./UserAvatar";
 import SignOutButton from "./SignOutButton";
+import UserAvatar from "./UserAvatar";
 
 interface IUserMenuProps {
   user: Pick<User, "name" | "email" | "image">;

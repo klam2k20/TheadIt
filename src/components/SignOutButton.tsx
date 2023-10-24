@@ -1,7 +1,7 @@
 "use client";
 
-import { DropdownMenuItem } from "./ui/DropdownMenu";
 import { signOut } from "next-auth/react";
+import { DropdownMenuItem } from "./ui/DropdownMenu";
 
 const SignOutButton = () => {
   return (
