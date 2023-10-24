@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icons } from "./Icons";
-import SignInButton from "./SignInButton";
+import GoogleButton from "./GoogleButton";
 
 const SignInBox = () => {
   return (
@@ -18,7 +18,7 @@ const SignInBox = () => {
       </div>
 
       {/* Google Sign In Button */}
-      <SignInButton />
+      <GoogleButton />
 
       {/* Sign Up Button */}
       <p className="text-center text-sm text-muted-foreground">

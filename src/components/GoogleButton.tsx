@@ -7,9 +7,9 @@ import { useState } from "react";
 import { Icons } from "./Icons";
 import { Button } from "./ui/Button";
 
-interface ISignInButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface IGoogleButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const SignInButton: React.FC<ISignInButtonProps> = ({
+const GoogleButton: React.FC<IGoogleButtonProps> = ({
   className,
   ...props
 }) => {
@@ -49,4 +49,4 @@ const SignInButton: React.FC<ISignInButtonProps> = ({
   );
 };
 
-export default SignInButton;
+export default GoogleButton;
