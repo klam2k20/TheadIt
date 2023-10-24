@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Icons } from "./Icons";
 import UserMenu from "./UserMenu";
 import { buttonVariants } from "./ui/Button";
+import SignInButton from "./SignInButton";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -21,13 +22,7 @@ const Navbar = async () => {
         {/* Searchbar */}
 
         {/* Login/SignUp */}
-        {session ? (
-          <UserMenu user={session.user} />
-        ) : (
-          <Link href="/sign-in" className={buttonVariants()}>
-            Sign In
-          </Link>
-        )}
+        {session ? <UserMenu user={session.user} /> : <SignInButton />}
       </div>
     </div>
   );
