@@ -8,7 +8,8 @@ const SignInButton = () => {
   const pathname = usePathname();
 
   return (
-    pathname !== "/sign-in" && (
+    pathname !== "/sign-in" &&
+    pathname !== "/sign-up" && (
       <Link href="/sign-in" className={buttonVariants()}>
         Sign In
       </Link>

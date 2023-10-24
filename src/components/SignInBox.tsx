@@ -2,14 +2,20 @@ import Link from "next/link";
 import { Icons } from "./Icons";
 import GoogleButton from "./GoogleButton";
 
-const SignInBox = () => {
+interface ISignInBoxProps {
+  isSignIn?: boolean;
+}
+
+const SignInBox: React.FC<ISignInBoxProps> = ({ isSignIn = true }) => {
   return (
     <div className="container flex w-full flex-col items-center justify-center gap-2 sm:w-[400px]">
       {/* Welcome */}
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
           <Icons.logo className="h-6 w-6 tracking-tight" />
-          <h1 className="text-2xl font-semibold ">Welcome back!</h1>
+          <h1 className="text-2xl font-semibold ">
+            {isSignIn ? "Welcome back!" : "Welcome to ThreadIt!"}
+          </h1>
         </div>
         <p className="max-w-xs text-sm">
           By continuing, you are setting up a ThreadIt account and agree to our
@@ -22,12 +28,12 @@ const SignInBox = () => {
 
       {/* Sign Up Button */}
       <p className="text-center text-sm text-muted-foreground">
-        New to ThreadIt?{" "}
+        {isSignIn ? "New to ThreadIt? " : "Already a ThreadIter? "}
         <Link
-          href="/sign-up"
+          href={isSignIn ? "/sign-up" : "/sign-in"}
           className="text-sm underline underline-offset-4 hover:text-foreground "
         >
-          Sign Up
+          {isSignIn ? "Sign Up" : "Sign In"}
         </Link>
       </p>
     </div>
