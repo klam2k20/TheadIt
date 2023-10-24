@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { Icons } from "./Icons";
 import { buttonVariants } from "./ui/Button";
+import { getAuthSession } from "@/lib/auth";
+import UserMenu from "./UserMenu";
 
-const Navbar: React.FC = () => {
+const Navbar = async () => {
+  const session = await getAuthSession();
+
   return (
     <div className="fixed inset-x-0 top-0 z-10 h-fit border-b border-zinc-300 bg-zinc-100 py-2">
       <div className="container flex h-full max-w-7xl items-center justify-between gap-2">
@@ -17,9 +21,13 @@ const Navbar: React.FC = () => {
         {/* Searchbar */}
 
         {/* Login/SignUp */}
-        <Link href="/sign-in" className={buttonVariants()}>
-          Sign In
-        </Link>
+        {session ? (
+          <UserMenu user={session.user} />
+        ) : (
+          <Link href="/sign-in" className={buttonVariants()}>
+            Sign In
+          </Link>
+        )}
       </div>
     </div>
   );

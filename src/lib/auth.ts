@@ -2,6 +2,7 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { nanoid } from 'nanoid'
 import { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
+import { getServerSession } from "next-auth/next"
 import { db } from './db'
 
 export const authOptions: NextAuthOptions = {
@@ -87,3 +88,8 @@ export const authOptions: NextAuthOptions = {
     }
   }
 }
+
+// The useSession() React hook is the easiest way to check if
+// someone is signed in a client component. To check if someone
+// is signed in a server component use getServerSession(authOptions) 
+export const getAuthSession = async () => await getServerSession(authOptions)

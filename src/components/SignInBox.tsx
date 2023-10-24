@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icons } from "./Icons";
 import SignInButton from "./SignInButton";
 
-const SignInBox: React.FC = () => {
+const SignInBox = () => {
   return (
     <div className="container flex w-full flex-col items-center justify-center gap-2 sm:w-[400px]">
       {/* Welcome */}
