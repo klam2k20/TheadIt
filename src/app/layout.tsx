@@ -15,9 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   authModal,
+  createModal,
 }: {
   children: React.ReactNode;
   authModal: React.ReactNode;
+  createModal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -29,6 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         {authModal}
+        {createModal}
         <div className="container h-full w-full max-w-7xl p-6">{children}</div>
         <Toaster />
       </body>
