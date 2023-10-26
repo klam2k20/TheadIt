@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const CreateBox = () => {
   return (
-    <div className=" hidden h-fit w-full flex-col gap-3 rounded-lg border-2 border-gray-200 bg-white p-3 lg:flex">
+    <div className="hidden h-fit w-full flex-col gap-3 overflow-hidden rounded-lg border-2 border-gray-200 bg-white p-3 lg:flex">
       <div className="flex items-center justify-start gap-4">
         <Icons.logo className="h-12 w-12 stroke-1" />
         <h1 className="text-lg font-bold">Home</h1>
