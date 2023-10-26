@@ -41,7 +41,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ user }) => {
             <Link href="/">Feed</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="cursor-pointer">
-            <Link href="/r/create">Create Community</Link>
+            <Link href="/t/create">Create Community</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="cursor-pointer">
             <Link href="/settings">Settings</Link>
