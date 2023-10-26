@@ -67,7 +67,13 @@ const CreateCommunityForm = () => {
       </p>
 
       <div className="flex items-center justify-end gap-4">
-        <Button variant="outline" onClick={() => router.back()}>
+        <Button
+          variant="outline"
+          onClick={(event) => {
+            event.stopPropagation();
+            router.back();
+          }}
+        >
           Cancel
         </Button>
         <Button variant="default" disabled={input.length == 0}>

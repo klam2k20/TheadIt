@@ -13,7 +13,10 @@ const CloseModalButton: React.FC<ICloseModalButtonProps> = ({ className }) => {
     <Button
       variant={"secondary"}
       className={className}
-      onClick={() => router.back()}
+      onClick={(event) => {
+        event.stopPropagation();
+        router.back();
+      }}
     >
       <X className="h-4 w-4" />
     </Button>
