@@ -4,7 +4,6 @@ export const Icons = {
   user: User,
   logo: (props: LucideProps) => (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -15,6 +14,7 @@ export const Icons = {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="lucide lucide-ghost"
+      {...props}
     >
       <path d="M9 10h.01" />
       <path d="M15 10h.01" />
