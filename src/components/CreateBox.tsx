@@ -15,15 +15,15 @@ const CreateBox = () => {
         favorite comunities.
       </p>
       <hr className="my-2 h-1 border-none" />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <Link
-          href="/t/create/community"
+          href="/t/create"
           className={cn("w-full", buttonVariants({ variant: "default" }))}
         >
           Create Comunitiy
         </Link>
         <Link
-          href="/t/create/post"
+          href="/t/submit"
           className={cn("w-full", buttonVariants({ variant: "secondary" }))}
         >
           Create Posts
