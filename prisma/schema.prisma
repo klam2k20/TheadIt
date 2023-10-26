@@ -61,7 +61,7 @@ model Community {
   updatedAt   DateTime      @updatedAt
   creator     User          @relation(fields: [creatorId], references: [id])
   creatorId   String
-  name        String
+  name        String        @unique
   posts       Post[]
   subscribers Subscribers[]
 
@@ -79,7 +79,7 @@ model Post {
   title       String
   community   Community  @relation(fields: [communityId], references: [id])
   communityId String
-  content     Json
+  content     Json?
   comments    Comment[]
   votes       PostVote[]
 
