@@ -24,7 +24,7 @@ const CreateBox = () => {
         </Link>
         <Link
           href="/t/submit"
-          className={cn("w-full", buttonVariants({ variant: "secondary" }))}
+          className={cn("w-full", buttonVariants({ variant: "outline" }))}
         >
           Create Posts
         </Link>
