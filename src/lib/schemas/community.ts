@@ -5,5 +5,3 @@ export const CommunitySchema = z.object({
 });
 
 export type CreateCommunityPayload = z.infer<typeof CommunitySchema>
-
-
