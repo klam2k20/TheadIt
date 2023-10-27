@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/Toaster";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,11 +16,9 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   authModal,
-  createModal,
 }: {
   children: React.ReactNode;
   authModal: React.ReactNode;
-  createModal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -29,11 +28,14 @@ export default function RootLayout({
           inter.className,
         )}
       >
-        <Navbar />
-        {authModal}
-        {createModal}
-        <div className="container h-full w-full max-w-7xl p-6">{children}</div>
-        <Toaster />
+        <Providers>
+          <Navbar />
+          {authModal}
+          <div className="container h-full w-full max-w-7xl p-6">
+            {children}
+          </div>
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );
