@@ -9,9 +9,9 @@ const CommunityBanner: React.FC<ICommunityBannerProps> = ({ community }) => {
   return (
     <div>
       <div className="h-16 bg-primary md:h-20" />
-      <div className="flex h-16 items-center md:h-20">
-        <div className="container flex max-w-7xl items-center gap-4 md:gap-6">
-          <div className="flex items-center justify-center rounded-full border-4 border-primary p-2 md:h-16 md:w-16">
+      <div className="flex h-16 md:h-20">
+        <div className="container flex max-w-7xl items-center gap-4 p-6 md:gap-6">
+          <div className="flex items-center justify-center rounded-full border-4 border-primary p-2">
             <Icons.rock className="h-6 w-6 md:h-8 md:w-8" />
           </div>
           <div className="flex w-full items-center justify-between md:justify-start md:gap-6">
