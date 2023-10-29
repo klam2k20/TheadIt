@@ -31,9 +31,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {authModal}
-          <div className="container h-full w-full max-w-7xl p-6">
-            {children}
-          </div>
+          {children}
           <Toaster />
         </Providers>
       </body>
