@@ -1,6 +1,8 @@
 "use client";
 
 import CommunityBanner from "@/components/CommunityBanner";
+import { db } from "@/lib/db";
+import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
 
 interface IPageProps {
@@ -9,7 +11,7 @@ interface IPageProps {
   };
 }
 
-const page: FC<IPageProps> = ({ params }) => {
+const Page: FC<IPageProps> = ({ params }) => {
   return (
     <>
       <CommunityBanner community={params.community} />
@@ -17,4 +19,4 @@ const page: FC<IPageProps> = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;
