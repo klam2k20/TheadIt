@@ -1,6 +1,6 @@
 "use client";
 import { Icons } from "@/components/Icons";
-import { Button, buttonVariants } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import {
   Tooltip,
@@ -10,12 +10,10 @@ import {
 } from "@/components/ui/Tooltip";
 import { useLoginToast } from "@/hooks/use-login-toast";
 import { toast } from "@/hooks/use-toast";
-import { CreateCommunityPayload } from "@/lib/schemas/community";
-import { cn } from "@/lib/utils";
+import { postCommunity } from "@/lib/apiRequests";
 import { TooltipArrow } from "@radix-ui/react-tooltip";
 import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosError } from "axios";
-import Link from "next/link";
+import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -26,10 +24,7 @@ const CreateCommunityForm = () => {
 
   const { mutate: handleCreateCommunity, isPending } = useMutation({
     mutationFn: async () => {
-      const payload: CreateCommunityPayload = {
-        name: input,
-      };
-      const { data } = await axios.post("/api/community", payload);
+      const { data } = await postCommunity(input);
       return data;
     },
     onError: (error) => {
@@ -64,29 +59,29 @@ const CreateCommunityForm = () => {
   });
 
   return (
-    <div className="container flex max-w-2xl flex-col gap-4">
+    <div className="container flex max-w-2xl flex-col gap-4 px-6 py-4">
       <h1 className="text-xl font-semibold">Create a community</h1>
-      <hr className="h-px " />
+      <hr className="h-px" />
 
       <div className="flex flex-col items-start">
         <h2 className="text-lg font-medium">Name</h2>
-        <div className="flex items-center gap-2">
-          <p className="text-zinc-500">
+        <div className="flex items-center gap-3">
+          <p className="text-sm">
             Community names including capitalization cannot be changed.
           </p>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Icons.info className="h-4 w-4 text-zinc-500" />
+                <Icons.info className="h-4 w-4 " />
               </TooltipTrigger>
               <TooltipContent
-                className="w-[200px] bg-black"
+                className="w-[200px] bg-primary"
                 sideOffset={5}
                 side="bottom"
                 align="center"
               >
                 <TooltipArrow />
-                <p className="text-white">
+                <p className="text-primary-foreground">
                   {`Names cannot have spaces (e.g., "t/onepiece" not "t/one 
                   piece"), must be between 3-21 characters, and underscores ("_")
                   are the only special characters allowed.`}
@@ -98,7 +93,7 @@ const CreateCommunityForm = () => {
       </div>
 
       <div className="relative">
-        <p className="absolute inset-y-0 left-0 grid w-8 place-content-center text-sm text-zinc-500">
+        <p className="absolute inset-y-0 left-0 grid w-8 place-content-center text-sm">
           t/
         </p>
         <Input
@@ -109,11 +104,11 @@ const CreateCommunityForm = () => {
         />
       </div>
 
-      <p className="-mt-2 text-sm text-zinc-500">
+      <p className="-mt-2 text-sm ">
         {`${21 - input.length} Characters remaining`}
       </p>
 
-      <div className="flex items-center justify-end gap-4">
+      <div className="flex items-center justify-end gap-3">
         <Button
           variant="outline"
           onClick={(event) => {

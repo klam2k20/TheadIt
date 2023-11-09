@@ -22,7 +22,7 @@ const Modal: React.FC<IModalProps> = ({ children, className }) => {
         )}
       >
         <div
-          className="relative h-fit w-full rounded-lg bg-white px-4 pb-4 pt-8"
+          className="relative h-fit w-full rounded-lg bg-white px-6 pb-4 pt-8"
           onClick={(event) => event.stopPropagation()}
         >
           <CloseModalButton className="absolute right-2 top-2 h-8 w-8 rounded-md p-1" />

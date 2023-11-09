@@ -5,16 +5,17 @@ import { cn } from "@/lib/utils";
 
 const CreateBox = () => {
   return (
-    <div className="hidden h-fit w-full flex-col gap-3 overflow-hidden rounded-lg border-2 border-gray-200 bg-white p-3 lg:flex">
-      <div className="flex items-center justify-start gap-4">
-        <Icons.logo className="h-12 w-12 stroke-1" />
-        <h1 className="text-lg font-bold">Home</h1>
+    <div className="hidden w-full flex-col gap-3 rounded-lg border-2 border-gray-200 bg-white px-6 py-4 lg:flex">
+      <div className="-mx-6 -mt-4 flex h-16 items-center gap-2 rounded-t-lg bg-primary px-6">
+        <Icons.logo className="h-8 w-8 stroke-primary-foreground" />
+        <h1 className="text-lg font-bold text-primary-foreground">Home</h1>
       </div>
-      <p className="leading-6 text-zinc-500">
+
+      <p className="max-w-xs text-sm">
         Your personal ThreadIt frontpage. Come here to check in with your
         favorite comunities.
       </p>
-      <hr className="my-2 h-1 border-none" />
+
       <div className="flex flex-col gap-3">
         <Link
           href="/t/create"
