@@ -10,7 +10,7 @@ const postCommunity = (name: string) => {
 }
 
 const getCommunity = (name: string) => {
-  return axios.get(`api/community?name=${name}`)
+  return axios.get(`/api/community?name=${name}`).then((data) => data.data)
 }
 
 export {

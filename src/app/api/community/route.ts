@@ -41,3 +41,65 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Internal Server Error. Something went wrong on our end. Please try again later.' }, { status: 500 });
   }
 }
+
+export async function GET(req: NextRequest) {
+  try {
+    const searchParams = req.nextUrl.searchParams;
+    const name = searchParams.get('name');
+
+    if (!name) {
+      return NextResponse.json({ message: 'Bad Request. Please provide a valid community name' }, { status: 400 });
+    }
+    const community = await db.community.findUnique({
+      where: {
+        name: name
+      },
+      select: {
+        id: true,
+        createdAt: true,
+        name: true,
+        posts: {
+          select: {
+            id: true,
+            updatedAt: true,
+            author: {
+              select: {
+                name: true,
+              }
+            },
+            title: true,
+            content: true,
+            votes: {
+              select: {
+                vote: true,
+              }
+            },
+            comments: {
+              select: {
+                id: true,
+              }
+            }
+          }
+        },
+        subscribers: {
+          select: {
+            userId: true,
+          }
+        }
+      }
+    });
+
+    if (!community) return NextResponse.json({ message: 'Community Not Found. The requested community does not exist.', name: name }, { status: 404 });
+
+    return NextResponse.json({
+      id: community.id,
+      createdAt: community.createdAt,
+      name: community.name,
+      posts: community.posts,
+      subscribers: community.subscribers.length
+    }, { status: 200 })
+
+  } catch (error) {
+    return NextResponse.json({ message: 'Internal Server Error. Something went wrong on our end. Please try again later.' }, { status: 500 });
+  }
+}

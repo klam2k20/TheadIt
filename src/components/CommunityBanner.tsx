@@ -3,9 +3,13 @@ import { Button } from "./ui/Button";
 
 interface ICommunityBannerProps {
   community: string;
+  subscribers: number;
 }
 
-const CommunityBanner: React.FC<ICommunityBannerProps> = ({ community }) => {
+const CommunityBanner: React.FC<ICommunityBannerProps> = ({
+  community,
+  subscribers,
+}) => {
   return (
     <div>
       <div className="h-16 bg-primary md:h-20" />
@@ -21,7 +25,9 @@ const CommunityBanner: React.FC<ICommunityBannerProps> = ({ community }) => {
             </div>
             <div className="flex flex-col md:hidden">
               <h1 className="text-2xl font-bold">{`t/${community}`}</h1>
-              <span className="leading-6 text-zinc-500">{`207,032 memebers`}</span>
+              <span className="leading-6 text-zinc-500">{`${subscribers} ${
+                subscribers > 1 ? "members" : "member"
+              }`}</span>
             </div>
             <Button size="lg">Join</Button>
           </div>
