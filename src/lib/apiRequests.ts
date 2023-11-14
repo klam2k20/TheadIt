@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateCommunityPayload } from "./schemas/community";
+import { CommunityInfoResponse, CreateCommunityPayload } from "./schemas/community";
 
 const postCommunity = (name: string) => {
   const payload: CreateCommunityPayload = {
@@ -9,7 +9,7 @@ const postCommunity = (name: string) => {
   return axios.post("/api/community", payload)
 }
 
-const getCommunity = (name: string) => {
+const getCommunity = async (name: string): Promise<CommunityInfoResponse> => {
   return axios.get(`/api/community?name=${name}`).then((data) => data.data)
 }
 

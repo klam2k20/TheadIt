@@ -1,6 +1,7 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { CommunitySchema } from "@/lib/schemas/community";
+import { VoteType } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -91,11 +92,26 @@ export async function GET(req: NextRequest) {
 
     if (!community) return NextResponse.json({ message: 'Community Not Found. The requested community does not exist.', name: name }, { status: 404 });
 
+    const posts = community.posts.map((post) => {
+      const upvotes = post.votes.filter((vote) => vote.vote == VoteType.UP).length;
+      const downvotes = post.votes.length - upvotes;
+      return {
+        id: post.id,
+        author: post.author.name,
+        title: post.title,
+        content: post.content,
+        upvotes,
+        downvotes,
+        comments: post.comments.length,
+        updatedAt: post.updatedAt,
+
+      }
+    })
     return NextResponse.json({
       id: community.id,
       createdAt: community.createdAt,
       name: community.name,
-      posts: community.posts,
+      posts,
       subscribers: community.subscribers.length
     }, { status: 200 })
 
